@@ -8,7 +8,7 @@ branches: [ master]
 jobs:
 # Build job
 build:
-name: My First Pipeline
+name: My Second Pipeline
 # Run on Ubuntu using the latest version
 runs-on: ubuntu-latest
 # Job's steps
