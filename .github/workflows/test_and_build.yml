@@ -26,7 +26,7 @@ jobs:
       - name: Run Tests
         run: mvn -B test
   # Build jobs
-    build:  
+  build:  
       # depends on tests job
       needs: tests
       name: Build
