@@ -1,10 +1,11 @@
+FROM maven:3.9.1-eclipse-temurin-17-alpine AS build
+RUN mkdir -p /app
+WORKDIR /app
+COPY pom.xml /app
+COPY src /app/src
+RUN mvn -B package --file pom.xml -DskipTests
 # Fetch the Java sdk image
-FROM openjdk:17-alpine
-# Expose port 8080
-EXPOSE 8080
-# set a docker volume if you want
-VOLUME /backend_volume
-# Add the jar file
-ADD /target/*.jar devops-demo-1.0.jar
-# Start the application
-ENTRYPOINT ["java", "-jar", "/devops-demo-1.0.jar"]
+FROM eclipse-temurin:17-jdk-alpine
+# Expose port 8080EXPOSE8080
+COPY --from=build /app/target/*jar devops-demo-1.0.jar
+ENTRYPOINT ["java","-jar","devops-demo-1.0.jar"]
