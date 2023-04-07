@@ -12,6 +12,7 @@ public class TeamService {
     private static final List<TeamMember> team_members = new ArrayList<>();
 
     static {
+        
         //Initialize Data
         Task t1 = new Task("Task1", "IoT Pipeline", "Create CD pipeline for the IoT service");
         Task t2 = new Task("Task2", "Cloud Pipeline", "Create CD pipeline for the backend component");
